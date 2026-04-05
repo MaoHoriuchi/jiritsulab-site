@@ -228,3 +228,96 @@ body.hovering .cursor-ring{width:64px;height:64px;top:-32px;left:-32px;border-co
 .footer-legal a:hover{opacity:.7}
 .footer-bottom{text-align:center;padding-top:20px;border-top:1px solid rgba(255,255,255,.04)}
 .footer-bottom p{font-size:10px;font-style:normal;opacity:.15}
+
+/* === ADDITIONS: Images, Logo Mark, Layout Fixes === */
+
+/* WiRM Logo Mark */
+.logo-mark{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:6px;background:linear-gradient(135deg,#0B6B3A,#2563EB);color:#fff;font-family:'Inter',sans-serif;font-size:14px;font-weight:900;font-style:italic;margin-right:8px;flex-shrink:0}
+.logo-mark-sm{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:5px;background:linear-gradient(135deg,#0B6B3A,#2563EB);color:#fff;font-family:'Inter',sans-serif;font-size:11px;font-weight:900;font-style:italic;margin-right:6px}
+
+/* Hero powered by */
+.hero-powered{font-size:12px;font-style:normal;opacity:.45;margin-bottom:12px;letter-spacing:.05em}
+.hero-powered strong{font-weight:800;opacity:1}
+
+/* Hero image */
+.hero-img-wrap{position:absolute;right:0;top:0;width:45%;height:100%;z-index:1;overflow:hidden}
+.hero-img{width:100%;height:100%;object-fit:cover;opacity:.35;filter:grayscale(.3);transition:opacity 1.5s}
+.hero-img-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#0a1628 0%,transparent 40%,transparent 80%,#0a1628 100%)}
+@media(max-width:768px){.hero-img-wrap{width:100%;opacity:.2}.hero-img-wrap::after{background:linear-gradient(180deg,#0a1628 0%,transparent 30%,transparent 70%,#0a1628 100%)}}
+
+/* Hero badges */
+.hero-badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:clamp(16px,3vh,28px)}
+.hero-badges span{font-family:'Inter',sans-serif;font-size:10px;font-weight:700;font-style:normal;letter-spacing:.06em;padding:5px 14px;border-radius:100px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1)}
+
+/* Section head left-aligned */
+.sec-head--left{text-align:left}
+.sec-head--left .sec-title{text-align:left}
+.sec-head--left .sec-lead{text-align:left;margin-left:0}
+
+/* pc only line break */
+.pc{display:inline}
+@media(max-width:768px){.pc{display:none}}
+
+/* Answer section with image */
+.answer{display:grid;grid-template-columns:280px 1fr;gap:clamp(24px,4vw,48px);align-items:center;margin-top:48px;padding:32px;border-radius:20px;background:#fff;box-shadow:0 8px 40px rgba(0,0,0,.04)}
+@media(max-width:768px){.answer{grid-template-columns:1fr;padding:20px}}
+.answer-img{border-radius:14px;overflow:hidden}
+.answer-img img{width:100%;height:200px;object-fit:cover;transition:transform .6s cubic-bezier(.165,.84,.44,1)}
+.answer:hover .answer-img img{transform:scale(1.05)}
+.answer-text p{font-size:clamp(18px,2.5vw,24px);font-style:normal;line-height:1.7;font-weight:700}
+.answer-sub{font-size:14px!important;font-weight:500!important;color:#555;margin-top:12px}
+
+/* Method image */
+.method-img{margin-top:clamp(40px,6vh,64px);border-radius:20px;overflow:hidden;position:relative}
+.method-img img{width:100%;height:clamp(200px,30vw,360px);object-fit:cover;filter:grayscale(.2);transition:filter .6s,transform .6s cubic-bezier(.165,.84,.44,1)}
+.method-img:hover img{filter:grayscale(0);transform:scale(1.03)}
+.method-img-caption{position:absolute;bottom:0;left:0;right:0;padding:20px 24px;background:linear-gradient(transparent,rgba(0,0,0,.7));font-size:clamp(16px,2vw,22px);font-weight:900;font-style:italic;color:#fff;transform:skew(-1deg)}
+
+/* Coach row */
+.coach-row{display:grid;grid-template-columns:300px 1fr;gap:clamp(24px,4vw,48px);align-items:center;margin-top:clamp(48px,6vh,80px);padding:32px;border-radius:20px;background:#fff;box-shadow:0 8px 40px rgba(0,0,0,.04)}
+@media(max-width:768px){.coach-row{grid-template-columns:1fr;padding:20px}}
+.coach-img{width:100%;height:280px;object-fit:cover;border-radius:14px;filter:grayscale(.15);transition:filter .5s,transform .5s cubic-bezier(.165,.84,.44,1)}
+.coach-row:hover .coach-img{filter:grayscale(0);transform:scale(1.03)}
+.coach-text h3{font-size:clamp(18px,2.5vw,24px);font-weight:900;font-style:italic;color:#1a1a2e;margin-bottom:12px;transform:skew(-1deg)}
+.coach-text p{font-size:14px;font-style:normal;color:#555;line-height:2}
+
+/* Header logo flex fix */
+.header-logo{display:flex;align-items:center}
+.logo-name{font-size:18px;font-weight:900;font-style:italic;color:#fff;letter-spacing:-.5px;transform:skew(-3deg)}
+.logo-name span{color:#2563EB}
+
+/* Header CTA Japanese */
+.header-cta{font-size:11px;font-weight:800;font-style:normal;letter-spacing:.08em}
+
+/* Mobile nav links */
+.mnav-inner a{display:block;font-family:'Inter',sans-serif;font-size:clamp(22px,5vw,34px);font-weight:900;font-style:italic;color:#fff;margin-bottom:16px;text-align:center;opacity:0;transform:translate3d(0,20px,0);transition:opacity .4s,transform .4s cubic-bezier(.165,.84,.44,1)}
+.mnav.open .mnav-inner a{opacity:1;transform:translate3d(0,0,0)}
+.mnav-cta{color:#7ee8a8!important;font-size:clamp(15px,3vw,18px)!important;margin-top:16px}
+
+/* Responsive fixes */
+@media(max-width:768px){
+  .header-nav{display:none}
+  .header-cta{display:none}
+  .burger{display:block}
+  .hero-content{padding-left:clamp(16px,4vw,24px);padding-right:clamp(16px,4vw,24px)}
+  .pillars{grid-template-columns:1fr;gap:12px}
+  .axes{grid-template-columns:repeat(2,1fr);gap:8px}
+  .axes>:last-child{grid-column:1/-1}
+  .plans{grid-template-columns:1fr;gap:12px}
+  .case-body{grid-template-columns:1fr;gap:8px}
+  .case-arrow{transform:rotate(90deg);text-align:center;font-size:20px}
+  .app-row{grid-template-columns:1fr;justify-items:center;gap:24px}
+  .footer-top{grid-template-columns:1fr;gap:16px;text-align:center}
+  .footer-legal{text-align:center}
+  .footer-nav{justify-content:center}
+  .coach-row{grid-template-columns:1fr}
+  .coach-img{height:200px}
+}
+
+/* Ensure burger is visible on tablet too */
+@media(max-width:960px){
+  .header-nav{display:none}
+  .header-cta{display:none}
+  .burger{display:block}
+}
+@media(min-width:961px){.burger{display:none}}
