@@ -16,6 +16,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Inter:ital,wght@0,400;0,700;0,900;1,700;1,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/fix.css">
 </head>
 <body>
 
@@ -156,6 +157,44 @@
       <div class="axis enterAnim" style="--c:#16a34a"><span class="axis-lv">Lv.1 &rarr; 6</span><h4>修正力</h4><p>ミスを仕組みで解決する力</p></div>
       <div class="axis enterAnim" style="--c:#9333ea"><span class="axis-lv">Lv.1 &rarr; 6</span><h4>逆算力</h4><p>ゴールから15分単位で行動設計する力</p></div>
     </div>
+    <!-- Radar Chart SVG -->
+    <div class="score-radar-wrap enterAnim">
+      <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+        <!-- Grid -->
+        <g transform="translate(150,150)" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="1">
+          <polygon points="0,-120 114,-37 70,97 -70,97 -114,-37"/>
+          <polygon points="0,-90 85,-28 53,73 -53,73 -85,-28"/>
+          <polygon points="0,-60 57,-19 35,49 -35,49 -57,-19"/>
+          <polygon points="0,-30 28,-9 18,24 -18,24 -28,-9"/>
+        </g>
+        <!-- Axis lines -->
+        <g transform="translate(150,150)" stroke="rgba(255,255,255,.06)" stroke-width="1">
+          <line x1="0" y1="0" x2="0" y2="-120"/><line x1="0" y1="0" x2="114" y2="-37"/>
+          <line x1="0" y1="0" x2="70" y2="97"/><line x1="0" y1="0" x2="-70" y2="97"/>
+          <line x1="0" y1="0" x2="-114" y2="-37"/>
+        </g>
+        <!-- Data polygon (sample Lv.4 average) -->
+        <polygon transform="translate(150,150)" points="0,-80 76,-25 47,65 -47,65 -76,-25" fill="rgba(126,232,168,.15)" stroke="#7ee8a8" stroke-width="2"/>
+        <g transform="translate(150,150)" fill="#7ee8a8">
+          <circle cx="0" cy="-80" r="4"/><circle cx="76" cy="-25" r="4"/><circle cx="47" cy="65" r="4"/>
+          <circle cx="-47" cy="65" r="4"/><circle cx="-76" cy="-25" r="4"/>
+        </g>
+        <!-- Labels -->
+        <g font-family="'Noto Sans JP',sans-serif" font-size="11" font-weight="700" fill="rgba(255,255,255,.7)" text-anchor="middle">
+          <text x="150" y="18">言語化力</text>
+          <text x="278" y="120">自発力</text>
+          <text x="230" y="265">習慣化力</text>
+          <text x="70" y="265">修正力</text>
+          <text x="22" y="120">逆算力</text>
+        </g>
+        <!-- Level labels -->
+        <g font-family="'Inter',sans-serif" font-size="8" fill="rgba(255,255,255,.25)" text-anchor="middle">
+          <text x="150" y="128">Lv.2</text><text x="150" y="98">Lv.3</text>
+          <text x="150" y="68">Lv.4</text><text x="150" y="38">Lv.5</text>
+        </g>
+      </svg>
+    </div>
+
     <div class="app-row">
       <div class="app-mock enterAnim"><div class="app-frame"><div class="app-glow"></div><div class="app-inner">成長モニター</div></div></div>
       <ul class="app-feats">
@@ -200,6 +239,50 @@
         </div>
       </article>
     </div>
+    <!-- Growth Curve SVG -->
+    <div class="growth-chart-wrap enterAnim">
+      <svg viewBox="0 0 600 250" xmlns="http://www.w3.org/2000/svg">
+        <!-- Background -->
+        <rect x="60" y="10" width="520" height="200" rx="8" fill="rgba(11,107,58,.03)" stroke="#e6ebf1" stroke-width="1"/>
+        <!-- Grid -->
+        <g stroke="#e6ebf1" stroke-width=".5">
+          <line x1="60" y1="50" x2="580" y2="50"/><line x1="60" y1="90" x2="580" y2="90"/>
+          <line x1="60" y1="130" x2="580" y2="130"/><line x1="60" y1="170" x2="580" y2="170"/>
+        </g>
+        <!-- Y axis labels -->
+        <g font-family="'Inter',sans-serif" font-size="10" fill="#999" text-anchor="end">
+          <text x="52" y="53">Lv.6</text><text x="52" y="93">Lv.4</text>
+          <text x="52" y="133">Lv.3</text><text x="52" y="173">Lv.2</text>
+          <text x="52" y="213">Lv.1</text>
+        </g>
+        <!-- X axis labels -->
+        <g font-family="'Inter',sans-serif" font-size="10" fill="#999" text-anchor="middle">
+          <text x="100" y="235">W1</text><text x="175" y="235">W4</text><text x="250" y="235">W8</text>
+          <text x="350" y="235">W12</text><text x="450" y="235">W16</text><text x="540" y="235">W20</text>
+        </g>
+        <!-- Lines -->
+        <defs>
+          <linearGradient id="gBlue" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#2563eb" stop-opacity=".1"/><stop offset="100%" stop-color="#2563eb" stop-opacity=".02"/></linearGradient>
+        </defs>
+        <path d="M100,190 C150,185 175,170 250,140 S350,90 450,65 540,50" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M100,195 C150,190 175,180 250,160 S350,130 450,110 540,95" fill="none" stroke="#0B6B3A" stroke-width="2" stroke-dasharray="4,4" stroke-linecap="round" opacity=".6"/>
+        <!-- Legend -->
+        <g font-family="'Noto Sans JP',sans-serif" font-size="10" fill="#333">
+          <line x1="380" y1="20" x2="400" y2="20" stroke="#2563eb" stroke-width="2.5"/>
+          <text x="406" y="24">フルコミットプラン</text>
+          <line x1="380" y1="36" x2="400" y2="36" stroke="#0B6B3A" stroke-width="2" stroke-dasharray="4,4"/>
+          <text x="406" y="40" fill="#888">プラスプラン</text>
+        </g>
+        <!-- Data points -->
+        <g fill="#2563eb">
+          <circle cx="100" cy="190" r="3"/><circle cx="175" cy="170" r="3"/><circle cx="250" cy="140" r="3"/>
+          <circle cx="350" cy="90" r="3"/><circle cx="450" cy="65" r="3"/><circle cx="540" cy="50" r="3"/>
+        </g>
+        <!-- Title -->
+        <text x="70" y="245" font-family="'Inter',sans-serif" font-size="11" font-weight="700" font-style="italic" fill="#0B6B3A">GROWTH CURVE — じりつスコア平均推移</text>
+      </svg>
+    </div>
+
     <div class="coach-row enterAnim">
       <img src="assets/images/coach.jpg" alt="コーチ" class="coach-img">
       <div class="coach-text">
